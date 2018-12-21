@@ -1,14 +1,19 @@
 import React from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
 import authRequests from '../../helpers/data/authRequests';
 
 class auth extends React.Component {
   authenticateUser = (event) => {
     event.preventDefault();
     authRequests.authenticate()
-      .then(() => {
-        this.props.isAuthenticated();
+      .then((result) => {
+        const user = result.additionalUserInfo.username;
+        this.props.userInfo(user)
+          .then(() => {
+            this.props.userCommits(user)
+              .then(() => {
+                this.props.isAuthenticated(user);
+              });
+          });
       })
       .catch((err) => {
         console.log(err);

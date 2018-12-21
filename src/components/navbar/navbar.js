@@ -10,6 +10,10 @@ import {
 } from 'reactstrap';
 
 class navbar extends React.Component {
+  state = {
+    isOpen: false,
+  }
+
   render() {
     const { isAuthenticated, logoutClicked } = this.props;
     return (
