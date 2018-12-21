@@ -8,10 +8,12 @@ class auth extends React.Component {
       .then((result) => {
         const user = result.additionalUserInfo.username;
         this.props.userInfo(user)
-          .then(() => {
+          .then((res) => {
+            const userInfo = res;
             this.props.userCommits(user)
-              .then(() => {
-                this.props.isAuthenticated(user);
+              .then((commitsRes) => {
+                const commits = commitsRes.data;
+                this.props.isAuthenticated(user, userInfo, commits);
               });
           });
       })

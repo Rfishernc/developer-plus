@@ -12,6 +12,8 @@ class App extends Component {
   state = {
     authenticated: false,
     user: '',
+    userInfo: '',
+    commits: '',
   }
 
   componentDidMount() {
@@ -33,14 +35,16 @@ class App extends Component {
   //   this.removeListener();
   // }
 
-  isAuthenticated = (username) => {
-    this.setState({ authenticated: true, user: username });
+  isAuthenticated = (user, userInfo, commits) => {
+    this.setState({
+      authenticated: true, user, userInfo, commits,
+    });
   }
 
   userInfo = user => new Promise((resolve, reject) => {
     profileData.getUserData(user)
-      .then(() => {
-        resolve();
+      .then((userInfo) => {
+        resolve(userInfo);
       })
       .catch((err) => {
         reject(err);
@@ -49,8 +53,8 @@ class App extends Component {
 
   userCommits = user => new Promise((resolve, reject) => {
     profileData.getCommits(user)
-      .then(() => {
-        resolve();
+      .then((commits) => {
+        resolve(commits);
       })
       .catch((err) => {
         reject(err);
@@ -60,7 +64,9 @@ class App extends Component {
   render() {
     const logoutClicked = () => {
       authRequests.logoutUser();
-      this.setState({ authenticated: false, user: '' });
+      this.setState({
+        authenticated: false, user: '', userInfo: '', commits: '',
+      });
     };
 
     if (!this.state.authenticated) {
@@ -80,7 +86,7 @@ class App extends Component {
       <div className="App">
         <Navbar isAuthenticated={this.state.authenticated} logoutClicked={logoutClicked}/>
         <div className='row'>
-          <ProfileCard className='col-3'/>
+          <ProfileCard className='col-3' userInfo={this.state.userInfo} userCommits={this.state.commits}/>
           <NewLinkAdder className='col-9'/>
         </div>
       </div>
