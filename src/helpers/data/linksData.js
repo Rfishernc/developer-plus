@@ -21,8 +21,18 @@ const getLinks = () => new Promise((resolve, reject) => {
     });
 });
 
-const addLink = (newLink) => new Promise((resolve, reject) => {
+const addLink = newLink => new Promise((resolve, reject) => {
   axios.post(`${URL}/links.json`, JSON.stringify(newLink))
+    .then(() => {
+      resolve();
+    })
+    .catch((err) => {
+      reject(err);
+    });
+});
+
+const deleteLink = id => new Promise((resolve, reject) => {
+  axios.delete(`${URL}/links/${id}.json`)
     .then(() => {
       resolve();
     })
@@ -34,4 +44,5 @@ const addLink = (newLink) => new Promise((resolve, reject) => {
 export default {
   getLinks,
   addLink,
+  deleteLink,
 };

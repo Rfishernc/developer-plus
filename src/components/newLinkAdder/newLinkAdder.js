@@ -11,7 +11,7 @@ class newLinkadder extends React.Component {
   newLink = {
     linkName: '',
     link: '',
-    type: '',
+    type: 'Tutorials',
     status: false,
     uid: this.props.user,
   }

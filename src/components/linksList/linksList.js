@@ -10,35 +10,41 @@ class linksList extends React.Component {
     selection: [],
   }
 
-  componentDidMount() {
+  componentWillMount() {
     linksData.getLinks()
       .then((links) => {
-        const filteredLinks = links.filter(link => link.type === 'Tutorials');
-        this.setState({ selection: filteredLinks });
+        this.setState({ selection: links });
       })
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  componentDidUpdate() {
+    this.makeCardsByType();
+  }
+
+  makeCardsByType() {
+    const filteredLinks = this.state.selection.filter(link => link.type === this.state.type);
+    return this.makeLinkCards(filteredLinks);
+  }
+
+  removeLinkCard(cardId) {
+    const filteredSelection = this.state.selection.filter(link => link.id !== cardId);
+    this.setState({ selection: filteredSelection });
+  }
+
+  makeLinkCards(filteredLinks) {
+    const theLinks = [];
+    filteredLinks.forEach((link) => {
+      theLinks.push(<LinkCard linkData={link} key={link.id} removeLinkCard={this.removeLinkCard}/>);
+    });
+    return theLinks;
   }
 
   selectType = (event) => {
     const type = event.target.id;
-    linksData.getLinks()
-      .then((links) => {
-        const filteredLinks = links.filter(link => link.type === type);
-        this.setState({ selection: filteredLinks });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  makeLinkCards() {
-    const theLinks = [];
-    this.state.selection.forEach((link) => {
-      theLinks.push(<LinkCard linkData={link} key={link.id}/>);
-    });
-    return theLinks;
+    this.setState({ type });
   }
 
   render() {
@@ -51,7 +57,7 @@ class linksList extends React.Component {
         <Button onClick={this.selectType} id='Podcasts'>Podcasts</Button>
       </ButtonGroup>
       <div className='listContainer'>
-        {this.makeLinkCards()}
+        {this.makeCardsByType()}
       </div>
     </div>
     );
