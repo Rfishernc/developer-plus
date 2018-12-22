@@ -21,6 +21,17 @@ const getLinks = () => new Promise((resolve, reject) => {
     });
 });
 
+const addLink = (newLink) => new Promise((resolve, reject) => {
+  axios.post(`${URL}/links.json`, JSON.stringify(newLink))
+    .then(() => {
+      resolve();
+    })
+    .catch((err) => {
+      reject(err);
+    });
+});
+
 export default {
   getLinks,
+  addLink,
 };
