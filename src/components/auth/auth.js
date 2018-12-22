@@ -1,5 +1,6 @@
 import React from 'react';
 import authRequests from '../../helpers/data/authRequests';
+import './auth.scss';
 
 class auth extends React.Component {
   authenticateUser = (event) => {
@@ -24,7 +25,7 @@ class auth extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='col auth'>
         <button className='btn btn-info' onClick={this.authenticateUser}>Login</button>
       </div>
     );

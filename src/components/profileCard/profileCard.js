@@ -17,7 +17,7 @@ class profileCard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='col-3'>
         <img alt='profilePic' src={this.state.picture}/>
         <h4>{this.state.name}</h4>
         <a href={this.link}>{this.state.link}</a>

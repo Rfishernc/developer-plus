@@ -1,0 +1,18 @@
+{
+  "links": {
+    "link1": {
+      "linkName": "Bob's Law Blog",
+      "link": "www.google.com",
+      "status": true,
+      "type": "Blogs",
+      "uid": "12345"
+    },
+    "link2": {
+      "linkName": "React For Dummies",
+      "link": "www.google.com",
+      "status": false,
+      "type": "Tutorials",
+      "uid": "12345"
+    }
+  }
+}

@@ -7,6 +7,7 @@ import Auth from '../components/auth/auth';
 import profileData from '../helpers/data/profileData';
 import NewLinkAdder from '../components/newLinkAdder/newLinkAdder';
 import ProfileCard from '../components/profileCard/profileCard';
+import Linkslist from '../components/linksList/linksList';
 
 class App extends Component {
   state = {
@@ -86,8 +87,11 @@ class App extends Component {
       <div className="App">
         <Navbar isAuthenticated={this.state.authenticated} logoutClicked={logoutClicked}/>
         <div className='row'>
-          <ProfileCard className='col-3' userInfo={this.state.userInfo} userCommits={this.state.commits}/>
-          <NewLinkAdder className='col-9'/>
+          <ProfileCard userInfo={this.state.userInfo} userCommits={this.state.commits}/>
+          <div className='linksContainer col'>
+            <NewLinkAdder/>
+            <Linkslist/>
+          </div>
         </div>
       </div>
     );
