@@ -24,17 +24,17 @@ class linksList extends React.Component {
     this.makeCardsByType();
   }
 
-  makeCardsByType() {
+  makeCardsByType = () => {
     const filteredLinks = this.state.selection.filter(link => link.type === this.state.type);
     return this.makeLinkCards(filteredLinks);
   }
 
-  removeLinkCard(cardId) {
+  removeLinkCard = (cardId) => {
     const filteredSelection = this.state.selection.filter(link => link.id !== cardId);
     this.setState({ selection: filteredSelection });
   }
 
-  makeLinkCards(filteredLinks) {
+  makeLinkCards = (filteredLinks) => {
     const theLinks = [];
     filteredLinks.forEach((link) => {
       theLinks.push(<LinkCard linkData={link} key={link.id} removeLinkCard={this.removeLinkCard}/>);
