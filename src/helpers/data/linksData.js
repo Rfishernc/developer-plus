@@ -41,8 +41,19 @@ const deleteLink = id => new Promise((resolve, reject) => {
     });
 });
 
+const updateStatus = (id, status) => new Promise((resolve, reject) => {
+  axios.patch(`${URL}/links/${id}.json`, { status })
+    .then(() => {
+      resolve();
+    })
+    .catch((err) => {
+      reject(err);
+    });
+});
+
 export default {
   getLinks,
   addLink,
   deleteLink,
+  updateStatus,
 };

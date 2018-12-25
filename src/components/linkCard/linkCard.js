@@ -30,9 +30,21 @@ class linkCard extends React.Component {
 
   checkChanged = () => {
     if (this.state.status === true) {
-      this.setState({ status: false });
+      linksData.updateStatus(this.state.id, this.state.status)
+        .then(() => {
+          this.setState({ status: false });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else if (this.state.status === false) {
-      this.setState({ status: true });
+      linksData.updateStatus(this.state.id, this.state.status)
+        .then(() => {
+          this.setState({ status: true });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }
 
