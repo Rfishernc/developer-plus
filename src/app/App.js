@@ -90,7 +90,7 @@ class App extends Component {
           <ProfileCard userInfo={this.state.userInfo} userCommits={this.state.commits}/>
           <div className='linksContainer col'>
             <NewLinkAdder user={this.state.user}/>
-            <Linkslist/>
+            <Linkslist user={this.state.user}/>
           </div>
         </div>
       </div>

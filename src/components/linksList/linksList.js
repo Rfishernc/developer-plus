@@ -11,7 +11,7 @@ class linksList extends React.Component {
   }
 
   componentWillMount() {
-    linksData.getLinks()
+    linksData.getLinks(this.props.user)
       .then((links) => {
         this.setState({ selection: links });
       })

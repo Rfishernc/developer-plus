@@ -3,8 +3,8 @@ import apiKeys from './apiKeys';
 
 const URL = apiKeys.firebaseKeys.databaseURL;
 
-const getLinks = () => new Promise((resolve, reject) => {
-  axios.get(`${URL}/links.json`)
+const getLinks = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${URL}/links.json?orderBy="uid"&equalTo="${uid}"`)
     .then((data) => {
       const linksObject = data.data;
       const linksArray = [];
