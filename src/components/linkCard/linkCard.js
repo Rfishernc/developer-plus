@@ -28,24 +28,21 @@ class linkCard extends React.Component {
       });
   }
 
-  checkChanged = () => {
+  changeCheck = () => new Promise((resolve, reject) => {
     if (this.state.status === true) {
-      linksData.updateStatus(this.state.id, this.state.status)
-        .then(() => {
-          this.setState({ status: false });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      this.setState({ status: false });
+      resolve();
     } else if (this.state.status === false) {
-      linksData.updateStatus(this.state.id, this.state.status)
-        .then(() => {
-          this.setState({ status: true });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      this.setState({ status: true });
+      resolve();
     }
+  })
+
+  checkChanged = () => {
+    this.changeCheck()
+      .then(() => {
+        linksData.updateStatus(this.state.id, this.state.status);
+      });
   }
 
   render() {

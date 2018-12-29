@@ -8,6 +8,7 @@ import profileData from '../helpers/data/profileData';
 import NewLinkAdder from '../components/newLinkAdder/newLinkAdder';
 import ProfileCard from '../components/profileCard/profileCard';
 import Linkslist from '../components/linksList/linksList';
+import linksData from '../helpers/data/linksData';
 
 class App extends Component {
   state = {
@@ -15,6 +16,7 @@ class App extends Component {
     user: '',
     userInfo: '',
     commits: '',
+    selection: [],
   }
 
   componentDidMount() {
@@ -40,6 +42,7 @@ class App extends Component {
     this.setState({
       authenticated: true, user, userInfo, commits,
     });
+    this.newLink();
   }
 
   userInfo = user => new Promise((resolve, reject) => {
@@ -62,6 +65,17 @@ class App extends Component {
       });
   })
 
+  newLink = () => new Promise((resolve, reject) => {
+    linksData.getLinks(this.state.user)
+      .then((data) => {
+        this.setState({ selection: data });
+        resolve();
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  })
+
   render() {
     const logoutClicked = () => {
       authRequests.logoutUser();
@@ -78,7 +92,8 @@ class App extends Component {
             <Auth
               isAuthenticated={this.isAuthenticated}
               userInfo={this.userInfo}
-              userCommits={this.userCommits}/>
+              userCommits={this.userCommits}
+              newLink={this.newLink}/>
           </div>
         </div>
       );
@@ -89,8 +104,8 @@ class App extends Component {
         <div className='row'>
           <ProfileCard userInfo={this.state.userInfo} userCommits={this.state.commits}/>
           <div className='linksContainer col'>
-            <NewLinkAdder user={this.state.user}/>
-            <Linkslist user={this.state.user}/>
+            <NewLinkAdder user={this.state.user} newLink={this.newLink}/>
+            <Linkslist user={this.state.user} selection={this.state.selection}/>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import apiKeys from './apiKeys';
 
 const URL = apiKeys.firebaseKeys.databaseURL;
 
-const getLinks = (uid) => new Promise((resolve, reject) => {
+const getLinks = uid => new Promise((resolve, reject) => {
   axios.get(`${URL}/links.json?orderBy="uid"&equalTo="${uid}"`)
     .then((data) => {
       const linksObject = data.data;
@@ -42,6 +42,7 @@ const deleteLink = id => new Promise((resolve, reject) => {
 });
 
 const updateStatus = (id, status) => new Promise((resolve, reject) => {
+  console.log(status);
   axios.patch(`${URL}/links/${id}.json`, { status })
     .then(() => {
       resolve();

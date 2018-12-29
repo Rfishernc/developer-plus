@@ -1,7 +1,6 @@
 import React from 'react';
 import { ButtonGroup, Button } from 'reactstrap';
 import './linksList.scss';
-import linksData from '../../helpers/data/linksData';
 import LinkCard from '../linkCard/linkCard';
 
 class linksList extends React.Component {
@@ -11,13 +10,7 @@ class linksList extends React.Component {
   }
 
   componentWillMount() {
-    linksData.getLinks(this.props.user)
-      .then((links) => {
-        this.setState({ selection: links });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.setState({ selection: this.props.selection });
   }
 
   componentDidUpdate() {
@@ -25,7 +18,7 @@ class linksList extends React.Component {
   }
 
   makeCardsByType = () => {
-    const filteredLinks = this.state.selection.filter(link => link.type === this.state.type);
+    const filteredLinks = this.props.selection.filter(link => link.type === this.state.type);
     return this.makeLinkCards(filteredLinks);
   }
 

@@ -23,6 +23,7 @@ class newLinkadder extends React.Component {
       .then(() => {
         document.getElementById('nameInput').value = '';
         document.getElementById('linkInput').value = '';
+        this.props.newLink();
       })
       .catch((err) => {
         console.log(err);
