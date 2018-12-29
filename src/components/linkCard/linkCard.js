@@ -47,13 +47,15 @@ class linkCard extends React.Component {
 
   render() {
     return (
-      <div className='linkCard row'>
-        <p className='linkNamePar linkPiece col'>{this.state.linkName}</p>
-        <a className='linkLinkAnc linkPiece col' href={this.state.link}>{this.state.link}</a>
-        <button type='button' className='btn btn-sm btn-danger linkRemoveButton linkPiece col-1' onClick={this.deleteLink}>Remove</button>
-        <div className='checkboxDiv linkPiece col-1'>
-          <p className='linkCheckPar'>Done!</p>
-          <input className='linkCheck' type='checkbox' checked={this.state.status} onChange={this.checkChanged}></input>
+      <div className='container-fluid'>
+        <div className='linkCard row'>
+          <p className='linkNamePar linkPiece col'>{this.state.linkName}</p>
+          <a className='linkLinkAnc linkPiece col' href={this.state.link}>{this.state.link}</a>
+          <button type='button' className='btn btn-sm btn-danger linkRemoveButton linkPiece col-1' onClick={this.deleteLink}>Remove</button>
+          <div className='checkboxDiv linkPiece col-1'>
+            <p className='linkCheckPar'>Done!</p>
+            <input className='linkCheck' type='checkbox' checked={this.state.status} onChange={this.checkChanged}></input>
+          </div>
         </div>
       </div>
     );

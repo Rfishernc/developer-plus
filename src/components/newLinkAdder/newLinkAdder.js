@@ -60,8 +60,8 @@ class newLinkadder extends React.Component {
               <ToggleButton value={'Podcasts'} className='toggleButtons'>Podcast</ToggleButton>
             </ToggleButtonGroup>
           </ButtonToolbar>
-        </div>
-        <button type='button' className='btn btn-sm btn-success newLinkButton' onClick={this.submitLink}>+</button>
+          <button type='button' className='btn btn-sm btn-success newLinkButton' onClick={this.submitLink}>+</button>
+        </div>   
       </div>
     );
   }

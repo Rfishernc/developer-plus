@@ -1,5 +1,10 @@
 .checkboxDiv {
   display: flex;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 3px;
+  margin-left: 2px;
+  background-color: cornflowerblue;
 }
 
 .linkCard {
@@ -31,7 +36,7 @@
 }
 
 .linkCheckPar {
-  margin-left: 5px;
+  margin-left: 0px;
   margin-top: auto;
   margin-bottom: auto;
 }

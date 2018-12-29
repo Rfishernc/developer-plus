@@ -99,9 +99,9 @@ class App extends Component {
       );
     }
     return (
-      <div className="App">
+      <div className="App container-fluid">
         <Navbar isAuthenticated={this.state.authenticated} logoutClicked={logoutClicked}/>
-        <div className='row'>
+        <div className='row main'>
           <ProfileCard userInfo={this.state.userInfo} userCommits={this.state.commits}/>
           <div className='linksContainer col'>
             <NewLinkAdder user={this.state.user} newLink={this.newLink}/>

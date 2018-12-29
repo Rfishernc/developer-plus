@@ -24,7 +24,7 @@ class profileCard extends React.Component {
           <div className='profileInfoDiv'>
             <h4>{this.state.name}</h4>
             <a href={this.link} className='profileAnc'>{this.state.link}</a>
-            <p class='profileCommits'>{this.state.commits} commits in the last 5 days</p>
+            <p className='profileCommits'>{this.state.commits} commits in the last 5 days</p>
           </div>
         </div>
       </div>

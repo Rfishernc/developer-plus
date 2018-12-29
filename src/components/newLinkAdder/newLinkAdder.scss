@@ -10,6 +10,11 @@
 
 .toggleButtons {
   margin-bottom: 0;
+  background-color: burlywood;
+  text-align: left !important;
+  input {
+    width: 20px;
+  }
 }
 
 .newLinkAdder {
