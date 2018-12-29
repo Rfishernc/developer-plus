@@ -4,4 +4,39 @@
 
 .linkCard {
   display: flex;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-bottom: 4px;
+  background-color: beige;
+  box-shadow: 0 2px 2px 0;
+  height: 50px;
+}
+
+.linkNamePar {
+  margin-left: 5px;
+}
+
+.linkCheck {
+  margin-left: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.linkRemoveButton {
+  margin-left: 5px;
+}
+
+.linkLinkAnc {
+  margin-left: 5px;
+}
+
+.linkCheckPar {
+  margin-left: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.linkPiece {
+  margin-top: auto;
+  margin-bottom: auto;
 }

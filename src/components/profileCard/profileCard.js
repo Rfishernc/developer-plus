@@ -1,4 +1,5 @@
 import React from 'react';
+import './profileCard.scss';
 
 class profileCard extends React.Component {
   state = {
@@ -17,11 +18,15 @@ class profileCard extends React.Component {
 
   render() {
     return (
-      <div className='col-3'>
-        <img alt='profilePic' src={this.state.picture}/>
-        <h4>{this.state.name}</h4>
-        <a href={this.link}>{this.state.link}</a>
-        <p>{this.state.commits} commits in the last 5 days</p>
+      <div className='col-2 profileCard'>
+        <div className='profileContainer'>
+          <img alt='profilePic' src={this.state.picture} className='profileImg'/>
+          <div className='profileInfoDiv'>
+            <h4>{this.state.name}</h4>
+            <a href={this.link} className='profileAnc'>{this.state.link}</a>
+            <p class='profileCommits'>{this.state.commits} commits in the last 5 days</p>
+          </div>
+        </div>
       </div>
     );
   }

@@ -39,13 +39,16 @@ class newLinkadder extends React.Component {
       <div className='newLinkAdder'>
         <div className='newLinkContainer'>
           <div>
-            <div className='inputDiv'>
-              <p className='inputLabel'>Name: </p>
-              <input type='text' className='inputInput' id='nameInput'></input>
-            </div>
-            <div className='inputDiv'>
-              <p className='inputLabel'>Link: </p>
-              <input type='text' className='inputInput' id='linkInput'></input>
+            <div className='linksContainer'>
+              <h3 className='newLinkHeader'>Add A Link</h3>
+              <div className='inputDiv'>
+                <p className='inputLabel'>Name: </p>
+                <input type='text' className='inputInput' id='nameInput'></input>
+              </div>
+              <div className='inputDiv'>
+                <p className='inputLabel'>Link: </p>
+                <input type='text' className='inputInput' id='linkInput'></input>
+              </div>
             </div>
           </div>
           <ButtonToolbar>
