@@ -11,8 +11,13 @@ class profileCard extends React.Component {
 
   componentDidMount() {
     const { userInfo, userCommits } = this.props;
+    const filteredEvents = userCommits.filter(event => event.type === 'PushEvent');
+    let commitCount = 0;
+    filteredEvents.forEach((event) => {
+      commitCount += event.payload.commits.length;
+    });
     this.setState({
-      picture: userInfo.avatar_url, name: userInfo.login, link: userInfo.url, commits: '',
+      picture: userInfo.avatar_url, name: userInfo.login, link: userInfo.url, commits: commitCount,
     });
   }
 
