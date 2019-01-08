@@ -1,0 +1,44 @@
+.inputDiv {
+  display: flex;
+  margin: 10px;
+}
+
+.inputLabel {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.toggleButtons {
+  margin-bottom: 0;
+  background-color: burlywood;
+  text-align: left !important;
+  input {
+    width: 20px;
+  }
+}
+
+.newLinkAdder {
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.newLinkContainer {
+  display: flex;
+}
+
+.newLinkButton {
+  height: 25%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20px;
+}
+
+.inputInput {
+  width: 500px;
+  border: 1px solid black;
+  box-shadow: 0 1px 1px 0;
+}
+
+.newLinkHeader {
+  text-align: center;
+}
